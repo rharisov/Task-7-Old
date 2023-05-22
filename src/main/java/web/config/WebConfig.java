@@ -10,6 +10,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+import web.model.Car;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 @EnableWebMvc
@@ -46,5 +50,16 @@ public class WebConfig implements WebMvcConfigurer {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
+    }
+
+    @Bean(name = "cars")
+    public List<Car> createCars(){
+        List<Car> list = new ArrayList<>();
+        list.add(new Car("Toyota", 1, "3.0"));
+        list.add(new Car("Mazda", 7, "2.0"));
+        list.add(new Car("BMW", 6, "4.2"));
+        list.add(new Car("Mercedes", 10, "5.0"));
+        list.add(new Car("Lada", 2, "1.6"));
+        return list;
     }
 }
