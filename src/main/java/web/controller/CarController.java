@@ -11,7 +11,7 @@ import web.service.CarService;
 public class CarController {
 
     @Autowired
-    CarService carService;
+    private CarService carService;
 
     @GetMapping(value = "/cars")
     public String getAllCars(ModelMap model) {

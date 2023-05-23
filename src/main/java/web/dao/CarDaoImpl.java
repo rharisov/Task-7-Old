@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public class CarDaoImpl implements CarDao{
     @Autowired
-    List<Car> cars;
+    private List<Car> cars;
 
     @Override
     public List<Car> getCars() {
